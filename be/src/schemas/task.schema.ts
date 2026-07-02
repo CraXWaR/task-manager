@@ -3,8 +3,8 @@ import { z } from 'zod';
 export const statusEnum = z.enum(['todo', 'in_progress', 'done']);
 
 export const createTaskSchema = z.object({
-  title: z.string().min(1, 'Title is required').max(255),
-  description: z.string().optional(),
+  title: z.string().min(4, 'Title must be at least 4 characters long').max(255),
+  description: z.string().max(255).optional(),
   status: statusEnum.optional(),
 });
 
